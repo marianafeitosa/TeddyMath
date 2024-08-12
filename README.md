@@ -1,7 +1,7 @@
 # TeddyMath
 
 <p align="center">
-  <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/logo.png" alt="Logo do TeddyMath" width="380"/>
+  <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/logo.png" alt="Logo do TeddyMath" width="750"/>
 </p>
 
 O **TeddyMath** é um projeto inovador que visa apoiar crianças do Ensino Fundamental I (faixa etária entre 6 e 8 anos) que enfrentam dificuldades no aprendizado de matemática. Através da integração entre um aplicativo móvel e um brinquedo interativo, o TeddyMath oferece uma experiência de aprendizagem envolvente, eficaz e personalizada.
