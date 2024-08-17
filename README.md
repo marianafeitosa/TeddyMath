@@ -14,7 +14,7 @@ O principal objetivo do TeddyMath é proporcionar uma ferramenta educativa que n
 
 Aqui estão algumas das principais telas do aplicativo TeddyMath:
 
-![Login](link_da_imagem)
+![Login](https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Login.png)
 *Login*
 
 ![Home](https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Home.png)
