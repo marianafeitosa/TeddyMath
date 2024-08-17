@@ -33,9 +33,9 @@ O projeto TeddyMath é desenvolvido por uma equipe dedicada e talentosa:
   - [Email](mailto:email_da_colaboradora_1)
 
 - **Mariana Akemi**  
-  - [LinkedIn](www.linkedin.com/in/mariana-arashiro-112382289)  
-  - [GitHub](link_para_o_github)  
-  - [Email](mailto:email_da_colaboradora_2)
+  - [LinkedIn](https://www.linkedin.com/in/mariana-arashiro-112382289?trk=contact-info)  
+  - [GitHub](https://github.com/marianafeitosa)  
+  - [Email](mailto:marianaarashiro09@gmail.com)
 
 - **Yasmin Pereira**  
   - [LinkedIn](link_para_o_linkedin)  
