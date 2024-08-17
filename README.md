@@ -45,7 +45,7 @@ O projeto TeddyMath é desenvolvido por uma equipe dedicada e talentosa:
   - [Email](mailto:marianaarashiro09@gmail.com)
 
 - **Yasmin Pereira**  
-  - [LinkedIn](link_para_o_linkedin)  
+  - [LinkedIn](https://www.linkedin.com/in/min-lima-994642273?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)  
   - [GitHub](https://github.com/whoismin)  
   - [Email](mailto:email_da_colaboradora_3)
 
