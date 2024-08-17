@@ -17,7 +17,7 @@ Aqui estão algumas das principais telas do aplicativo TeddyMath:
 ![Login](link_da_imagem)
 *Login*
 
-![Home](link_da_imagem)
+![Home](https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Home.png)
 *Home*
 
 ![Jogos](link_da_imagem)
