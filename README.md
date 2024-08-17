@@ -15,18 +15,18 @@ O principal objetivo do TeddyMath é proporcionar uma ferramenta educativa que n
 Aqui estão algumas das principais telas do aplicativo TeddyMath:
 
 <div style="text-align: center;">
-    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Login.png" alt="Login">
-    <p><em>Tela Inicial e Login</em></p>
+    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Login.png" alt="Login" style="display: block; margin: 0 auto;">
+    <p style="text-align: center;"><strong>Tela Inicial e Login</strong></p>
 </div>
 
 <div style="text-align: center;">
-    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Home.png" alt="Home">
-    <p><em>Home e Jogo de Desenhar: Colore</em></p>
+    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Home.png" alt="Home" style="display: block; margin: 0 auto;">
+    <p style="text-align: center;"><strong>Home e Jogo de Desenhar: Colore</strong></p>
 </div>
 
 <div style="text-align: center;">
-    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Jogos.png" alt="Jogos">
-    <p><em>Jogo da Memória: Caça Formas </em></p>
+    <img src="https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Jogos.png" alt="Jogos" style="display: block; margin: 0 auto;">
+    <p style="text-align: center;"><strong>Jogo da Memória: Caça Formas</strong></p>
 </div>
 
 
