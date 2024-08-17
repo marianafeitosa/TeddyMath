@@ -20,7 +20,7 @@ Aqui estão algumas das principais telas do aplicativo TeddyMath:
 ![Home](https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Home.png)
 *Home*
 
-![Jogos](link_da_imagem)
+![Jogos](https://github.com/marianafeitosa/TeddyMath/blob/main/Readme/Jogos.png)
 *Jogos*
 
 ## Colaboradoras
