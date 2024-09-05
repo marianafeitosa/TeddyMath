@@ -46,6 +46,8 @@ nav ul li a {
   font-weight: bold;
   padding: 0.5rem 1rem;
   transition: color 0.3s, background-color 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+
 }
 
 nav ul li a:hover {
@@ -308,6 +310,8 @@ nav ul li a:hover {
   font-size: 1.2rem;
   margin-bottom: 15px;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+
 }
 
 .social-icons {
@@ -335,31 +339,28 @@ nav ul li a:hover {
   background-color: #9ce5c3; /* Verde para Yasmin */
 }
 
-
 /* CONTATO */
 .contato-container {
-  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Mantém a imagem à esquerda e o formulário à direita */
   align-items: center;
   padding: 50px;
 }
 
+.contato-imagem {
+  order: 1; /* Garante que a imagem esteja à esquerda */
+}
+
 .contato-imagem img {
-  width: 300px; /* Ajuste conforme necessário */
+  width: 550px; /* Aumenta o tamanho da imagem do urso */
 }
 
 .contato-formulario {
+  order: 2; /* Garante que o formulário esteja à direita */
   max-width: 400px;
-  background-color: #F8F4EA;
+
   padding: 30px;
   border-radius: 15px;
-}
-
-.contato-formulario h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #FBAF44;
 }
 
 .contato-formulario form input,
@@ -367,13 +368,22 @@ nav ul li a:hover {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 50px; /* Bordas arredondadas */
   border: 2px solid #CCC;
   font-size: 18px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  outline: none; /* Remove o contorno padrão */
+  transition: box-shadow 0.3s ease-in-out; /* Efeito de foco suave */
+}
+
+.contato-formulario form input:focus,
+.contato-formulario form textarea:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte no foco */
 }
 
 .contato-formulario form textarea {
   height: 150px;
+  border-radius: 30px; /* Ajuste no arredondamento da área de texto */
 }
 
 .contato-formulario form button {
@@ -382,36 +392,62 @@ nav ul li a:hover {
   background-color: #F7AAB7;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 50px; /* Bordas arredondadas no botão */
   font-size: 18px;
+  font-weight: bold; /* Texto em negrito */
   cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra no botão */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efeito de hover */
+}
+
+.contato-formulario form button:hover {
+  background-color: #f58a9c; /* Cor de fundo mais escura no hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+/* Título "Contato" */
+#contato h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #FBAF44;
+  text-align: center;
 }
 
 /* Footer */
 footer {
   background-color: #FDEBCF;
-  padding: 20px 0;
-  text-align: center;
+  padding: 20px;
+  position: relative;
 }
 
 .footer-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Garante que o conteúdo fique distribuído */
+  align-items: flex-start; /* Alinha o conteúdo principal à esquerda */
+}
+
+.footer-contato {
+  flex-grow: 1; /* Faz com que a seção de contato ocupe o máximo de espaço à esquerda */
 }
 
 .footer-contato p {
   margin: 5px 0;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold; /* Negrito */
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+
 }
 
 .footer-contato img {
-  width: 20px;
-  margin-right: 10px;
+  width: 50px; /* Ajuste o valor conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
 }
+
 
 footer img {
   width: 50px;
@@ -419,11 +455,17 @@ footer img {
   margin: 5px 0;
 }
 
+/* Copyright no canto inferior direito */
 .footer-copyright {
-  margin-top: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
   font-size: 16px;
-  color: #b8b2b2;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+
 }
+
 
 
 /* BOTAO DE VOLTAR AO TOPO */
