@@ -1,4 +1,4 @@
-/* importando a fonte */
+/* FONTE */
 
 @font-face {
   font-family: 'Adelia';
@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  padding-top: 50px; /* Ajuste a altura conforme necessário */
+  padding-top: 50px; 
   margin: 0;
   padding: 0;
   background-color: #fffff2;
@@ -20,12 +20,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-radius: 40px; /* Define os cantos arredondados */
+  border-radius: 40px; 
 }
 
 header .logo img {
-  height: 100px; /* Defina a altura desejada */
-  width: auto; /* Mantém a proporção */
+  height: 100px; 
+  width: auto; 
 }
 
 
@@ -46,7 +46,7 @@ nav ul li a {
   font-weight: bold;
   padding: 0.5rem 1rem;
   transition: color 0.3s, background-color 0.3s;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
@@ -71,8 +71,8 @@ nav ul li a:hover {
   color: #fff;
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-family: 'Adelia', cursive; /* Aplicar a fonte personalizada */
-  background-color: #FFADB4; /* Fundo rosa atrás do texto */
+  font-family: 'Adelia', cursive; 
+  background-color: #FFADB4; 
   box-shadow: #333;
   padding: 1rem;
   border-radius: 50px;
@@ -109,10 +109,10 @@ nav ul li a:hover {
   content: "";
   display: block;
   position: absolute;
-  top: -20px; /* Ajuste conforme necessário */
+  top: -20px; 
   left: 0;
   width: 100%;
-  height: 40px; /* Ajuste conforme necessário */
+  height: 40px; 
   background: url('img/wave.svg') repeat-x;
 }
 .feature-container {
@@ -124,13 +124,13 @@ nav ul li a:hover {
 }
 
 .feature img {
-  max-width: 500px; /* Aumenta o tamanho máximo da imagem */
+  max-width: 500px; 
   border-radius: 10px;
-  width: 100%; /* Mantém a largura automática */
-  position: relative; /* ou 'absolute' se precisar de posicionamento exato */
-  top: -200px; /* Ajuste conforme necessário para sobrepor a onda */
-  left: 20px; /* Ajuste conforme necessário para mover a imagem para a direita */
-  transform: scale(1.3); /* Ajusta a escala da imagem */
+  width: 100%;
+  position: relative; 
+  top: -200px;
+  left: 20px; 
+  transform: scale(1.3); 
 }
 
 
@@ -147,7 +147,7 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  box-sizing: border-box; /* Include padding in the width */
+  box-sizing: border-box; 
 }
 
 .container2 .card {
@@ -161,12 +161,11 @@ nav ul li a:hover {
   overflow: hidden;
   transition: 0.5s;
   text-align: center;
-  box-sizing: border-box; /* Include padding in the width */
-}
+  box-sizing: border-box; 
 
 .container2 .card img {
   transition: 0.5s;
-  margin: 0 auto; /* Adiciona centralização da imagem */
+  margin: 0 auto; 
 }
 
 .container2 .card h1 {
@@ -234,13 +233,13 @@ nav ul li a:hover {
 .step {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px; /* Espaçamento entre os steps */
+  margin-bottom: 20px; 
 }
 
 .step img {
-  max-width: 40px; /* Ajuste o tamanho conforme necessário */
+  max-width: 40px; 
   height: auto;
-  margin-right: 15px; /* Espaço entre o número e o texto */
+  margin-right: 15px; 
 }
 
 .app-preview {
@@ -278,7 +277,7 @@ nav ul li a:hover {
 
 .desenvolvedoras h2 {
   font-size: 2.5rem;
-  color: #f39c12; /* Ajuste de cor */
+  color: #f39c12; 
   margin-bottom: 40px;
 }
 
@@ -310,7 +309,7 @@ nav ul li a:hover {
   font-size: 1.2rem;
   margin-bottom: 15px;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
@@ -325,38 +324,36 @@ nav ul li a:hover {
   height: 100;
 }
 
-
-/* Cores individuais dos cards */
 .card-blue {
-  background-color: #8ac6ff; /* Azul para Letícia */
+  background-color: #8ac6ff; 
 }
 
 .card-pink {
-  background-color: #f7b2ff; /* Rosa para Mariana */
+  background-color: #f7b2ff; 
 }
 
 .card-green {
-  background-color: #9ce5c3; /* Verde para Yasmin */
+  background-color: #9ce5c3; 
 }
 
 /* CONTATO */
 .contato-container {
   display: flex;
-  justify-content: space-between; /* Mantém a imagem à esquerda e o formulário à direita */
+  justify-content: space-between; 
   align-items: center;
   padding: 50px;
 }
 
 .contato-imagem {
-  order: 1; /* Garante que a imagem esteja à esquerda */
+  order: 1; 
 }
 
 .contato-imagem img {
-  width: 550px; /* Aumenta o tamanho da imagem do urso */
+  width: 550px; 
 }
 
 .contato-formulario {
-  order: 2; /* Garante que o formulário esteja à direita */
+  order: 2; 
   max-width: 400px;
 
   padding: 30px;
@@ -368,22 +365,22 @@ nav ul li a:hover {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 50px; /* Bordas arredondadas */
+  border-radius: 50px; 
   border: 2px solid #CCC;
   font-size: 18px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  outline: none; /* Remove o contorno padrão */
-  transition: box-shadow 0.3s ease-in-out; /* Efeito de foco suave */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  outline: none; 
+  transition: box-shadow 0.3s ease-in-out; 
 }
 
 .contato-formulario form input:focus,
 .contato-formulario form textarea:focus {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte no foco */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .contato-formulario form textarea {
   height: 150px;
-  border-radius: 30px; /* Ajuste no arredondamento da área de texto */
+  border-radius: 30px; 
 }
 
 .contato-formulario form button {
@@ -392,21 +389,21 @@ nav ul li a:hover {
   background-color: #F7AAB7;
   color: white;
   border: none;
-  border-radius: 50px; /* Bordas arredondadas no botão */
+  border-radius: 50px;
   font-size: 18px;
-  font-weight: bold; /* Texto em negrito */
+  font-weight: bold; 
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra no botão */
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efeito de hover */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
 }
 
 .contato-formulario form button:hover {
-  background-color: #f58a9c; /* Cor de fundo mais escura no hover */
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+  background-color: #f58a9c;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Título "Contato" */
+
 #contato h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -414,7 +411,7 @@ nav ul li a:hover {
   text-align: center;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   background-color: #FDEBCF;
   padding: 20px;
@@ -423,12 +420,12 @@ footer {
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* Garante que o conteúdo fique distribuído */
-  align-items: flex-start; /* Alinha o conteúdo principal à esquerda */
+  justify-content: space-between; 
+  align-items: flex-start; 
 }
 
 .footer-contato {
-  flex-grow: 1; /* Faz com que a seção de contato ocupe o máximo de espaço à esquerda */
+  flex-grow: 1; 
 }
 
 .footer-contato p {
@@ -436,16 +433,16 @@ footer {
   display: flex;
   align-items: center;
   font-size: 16px;
-  font-weight: bold; /* Negrito */
+  font-weight: bold;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
 .footer-contato img {
-  width: 50px; /* Ajuste o valor conforme necessário */
-  height: auto; /* Mantém a proporção da imagem */
-  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+  width: 50px; 
+  height: auto; 
+  margin-right: 8px; 
 }
 
 
@@ -455,14 +452,14 @@ footer img {
   margin: 5px 0;
 }
 
-/* Copyright no canto inferior direito */
+
 .footer-copyright {
   position: absolute;
   right: 20px;
   bottom: 20px;
   font-size: 16px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
@@ -488,4 +485,5 @@ footer img {
 }
 #back-to-top:hover {
   background-color: #ffd8de;
+}
 }
