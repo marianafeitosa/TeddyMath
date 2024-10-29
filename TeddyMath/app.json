@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "TeddyMath",
+    "slug": "TeddyMath",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FCE7D1"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.teddymath.app"
+    },
+    "android": {
+      "package": "com.teddymath.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
