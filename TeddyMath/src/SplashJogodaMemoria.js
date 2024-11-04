@@ -60,11 +60,11 @@ const SplashJogodaMemoria = () => {
       
       {/* Animações de opacidade para as imagens */}
       <Animated.Image 
-        source={require('../../assets/ursoCortado.png')} 
+        source={require('../assets/ursoCortado.png')} 
         style={[styles.bearImage1, { opacity: fadeAnim1 }]} 
       />
       <Animated.Image 
-        source={require('../../assets/ursoCortado2.png')} 
+        source={require('../assets/ursoCortado2.png')} 
         style={[styles.bearImage2, { opacity: fadeAnim2 }]} 
       />
       

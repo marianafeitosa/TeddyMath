@@ -45,7 +45,7 @@ useEffect(() => {
 
       {/* Aplica o fade-in na imagem do logo */}
       <Animated.View style={[styles.logoContainer, { opacity: fadeAnim }]}>
-        <Image source={require('../../assets/logoTenteNovamente.png')} style={styles.logo} />
+        <Image source={require('../assets/logoTenteNovamente.png')} style={styles.logo} />
       </Animated.View>
 
       <View style={styles.scoreContainer}>
@@ -63,19 +63,19 @@ useEffect(() => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('SplashJogodaMemoria')}>
-          <Image source={require('../../assets/botaoVoltar.png')} style={styles.button} />
+          <Image source={require('../assets/botaoVoltar.png')} style={styles.button} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={onContinue}>
-          <Image source={require('../../assets/botaoHome.png')} style={styles.button} />
+          <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={onContinue}>
-          <Image source={require('../../assets/botaoConfiguracoes.png')} style={styles.button} />
+          <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../assets/ursoCortado.png')} style={styles.urso} />
+      <Image source={require('../assets/ursoCortado.png')} style={styles.urso} />
     </View>
   );
 };

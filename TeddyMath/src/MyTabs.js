@@ -1,44 +1,39 @@
-// src/MyTabs.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet } from 'react-native';
-import MenuPrincipal from './MenuPrincipal'; // Importando o MenuPrincipal
-import Configuracoes from './Configuracoes'; // Importando a tela de configurações
-import Perfil from './Perfil'; // Importando a tela de perfil
-import Security from './Security'; // Importando a tela de segurança
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import MenuPrincipal from './MenuPrincipal';
+import Configuracoes from './Configuracoes';
+import PerfilCrianca from './PerfilCrianca';
 
 const Tab = createBottomTabNavigator();
+const isLoggedIn = false; // Simulação de autenticação
 
-// Simulação de verificação de login. Você deve substituir isso pela sua lógica de autenticação real.
-const isLoggedIn = false; // Defina como true se o pai estiver logado.
+// Dados fictícios da criança para simulação
+const CadastroIdade = () => {
+  const handleSave = async () => {
+    const nome = "Nome da Criança"; // Obtenha isso da entrada do usuário
+    const genero = "Menina"; // Obtenha isso da entrada do usuário
+    const idade = 6; // Obtenha isso da entrada do usuário
+    await saveChildData(nome, genero, idade);
+  };
+};
 
-const MyTabs = () => {
+const MyTabs = ({ navigation }) => {
+  const handleProfilePress = () => {
+    if (isLoggedIn) {
+      navigation.navigate('Perfil');
+    } else {
+      navigation.navigate('Security'); // Redireciona para segurança se não estiver logado
+    }
+  };
+
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {
-          position: 'absolute',
-          bottom: 10,
-          left: 10,
-          right: 10,
-          backgroundColor: '#e9e8e7',
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
-          borderBottomLeftRadius: 30,
-          borderBottomRightRadius: 30,
-          height: 70,
-          elevation: 0,
-          shadowOpacity: 0,
-        },
-        tabBarItemStyle: {
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-        tabBarIconStyle: {
-          width: 30,
-          height: 30,
-        },
+        tabBarStyle: styles.tabBar,
+        tabBarItemStyle: styles.tabBarItem,
+        tabBarIconStyle: styles.tabBarIcon,
       }}
     >
       <Tab.Screen
@@ -67,15 +62,18 @@ const MyTabs = () => {
           tabBarLabel: () => null,
         }}
       />
+      
       <Tab.Screen
-        name="Perfil"
-        component={Perfil} // Navega para a tela de perfil se logado, caso contrário para a tela de segurança
+        name="PerfilCrianca"
+        children={() => <PerfilCrianca crianca={dadosDaCrianca} />} // Passa os dados da criança como propriedade
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Image
-              source={require('../assets/profile-icon.png')}
-              style={[styles.navIcon, { tintColor: focused ? '#f6cc84' : '#757474' }]}
-            />
+          tabBarButton: (props) => (
+            <TouchableOpacity {...props} onPress={handleProfilePress}>
+              <Image
+                source={require('../assets/profile-icon.png')}
+                style={[styles.navIcon, { tintColor: props.focused ? '#f6cc84' : '#757474' }]}
+              />
+            </TouchableOpacity>
           ),
           tabBarLabel: () => null,
         }}
@@ -85,6 +83,25 @@ const MyTabs = () => {
 };
 
 const styles = StyleSheet.create({
+  tabBar: {
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    right: 10,
+    backgroundColor: '#e9e8e7',
+    borderRadius: 30,
+    height: 70,
+    elevation: 0,
+    shadowOpacity: 0,
+  },
+  tabBarItem: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  tabBarIcon: {
+    width: 30,
+    height: 30,
+  },
   navIcon: {
     width: 30,
     height: 30,

@@ -7,6 +7,9 @@ const CadastroNomeGenero = ({ navigation }) => {
 
   const handleNext = () => {
     if (nome && genero) {
+      // Log para depuração
+      console.log('Dados enviados:', { nome, genero });
+      
       // Navega para o componente CadastroIdade, passando nome e gênero
       navigation.navigate('CadastroIdade', { nome, genero });
     } else {
@@ -66,7 +69,6 @@ const CadastroNomeGenero = ({ navigation }) => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

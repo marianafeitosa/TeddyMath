@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebaseConfig'; // Importe a configuração do Firebase
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    Alert.alert("Atenção", "A autenticação foi removida do login.");
-    // Redireciona o usuário para a página principal
-    navigation.navigate('MenuPrincipal');
+  const handleLogin = async () => {
+    try {
+      // Autenticação com Firebase
+      await signInWithEmailAndPassword(auth, email, password);
+      navigation.navigate('Perfil'); // Redireciona para a página de perfil ao fazer login com sucesso
+    } catch (error) {
+      // Tratamento de erros de autenticação
+      let errorMessage = "Erro ao fazer login.";
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errorMessage = "E-mail inválido.";
+          break;
+        case 'auth/user-not-found':
+          errorMessage = "Usuário não encontrado.";
+          break;
+        case 'auth/wrong-password':
+          errorMessage = "Senha incorreta.";
+          break;
+        default:
+          errorMessage = error.message;
+      }
+      Alert.alert("Erro", errorMessage);
+    }
   };
 
   return (

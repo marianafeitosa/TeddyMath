@@ -1,42 +1,51 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import ConfettiCannon from 'react-native-confetti-cannon';
 
-const TelaParabens = ({ route, navigation }) => {
+
+const TelaTenteNovamenteQuiz = ({ route, navigation }) => {
   const { score, onContinue } = route.params;
 
-  // Cria referências de animação para fade e escala
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0.9)).current;
+// Cria referências de animação para fade e escala
+const fadeAnim = useRef(new Animated.Value(0)).current;
+const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
-  useEffect(() => {
-    // Inicia animações de fade-in e zoom ao montar a tela
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 1000, // Duração de 1 segundo
-        useNativeDriver: true,
-      }),
-      Animated.spring(scaleAnim, {
-        toValue: 1,
-        friction: 5,  // Reduzindo a fricção para um efeito mais suave
-        tension: 80,  // Controla a intensidade do "bounce" no final
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [fadeAnim, scaleAnim]);
+useEffect(() => {
+  // Inicia animações de fade-in e zoom ao montar a tela
+  Animated.parallel([
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000, // Duração de 1 segundo
+      useNativeDriver: true,
+    }),
+    Animated.spring(scaleAnim, {
+      toValue: 1,
+      friction: 5,  // Reduzindo a fricção para um efeito mais suave
+      tension: 80,  // Controla a intensidade do "bounce" no final
+      useNativeDriver: true,
+    }),
+  ]).start();
+}, [fadeAnim, scaleAnim]);
+
+// No estilo do componente que você quer animar
+<Animated.View
+  style={{
+    opacity: fadeAnim,
+    transform: [{ scale: scaleAnim }],
+    // Outros estilos do componente
+  }}
+>
+  {/* Conteúdo da sua imagem ou componente animado */}
+</Animated.View>
+
 
   return (
     <View style={styles.container}>
       <View style={styles.backgroundBox}></View>
 
-      {/* Efeito de parabéns com confetes */}
-      <ConfettiCannon count={100} origin={{ x: wp('50%'), y: hp('10%') }} fadeOut={true} fallSpeed={2500} />
-
       {/* Aplica o fade-in na imagem do logo */}
-      <Animated.View style={[styles.logoContainer, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}>
-        <Image source={require('../assets/logoParabens.png')} style={styles.logo} />
+      <Animated.View style={[styles.logoContainer, { opacity: fadeAnim }]}>
+        <Image source={require('../assets/logoTenteNovamente.png')} style={styles.logo} />
       </Animated.View>
 
       <View style={styles.scoreContainer}>
@@ -44,23 +53,24 @@ const TelaParabens = ({ route, navigation }) => {
         <Text style={styles.scoreValue}>{score}</Text>
       </View>
 
-      <TouchableOpacity style={styles.reiniciarButton} onPress={onContinue}>
+      <TouchableOpacity onPress={() => navigation.navigate('SplashQuiz')} style={styles.reiniciarButton}>
         <View style={styles.reiniciarButtonInnerShadow} />
-        <Text style={styles.reiniciarButtonText}>Continuar</Text>
+        <Text style={styles.reiniciarButtonText}>Reiniciar</Text>
         <View style={styles.reiniciarButtonHighlight} />
         <View style={styles.reiniciarButtonLightDot} />
-      </TouchableOpacity>
+      </TouchableOpacity> 
+
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SplashJogodaMemoria')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SplashQuiz')}>
           <Image source={require('../assets/botaoVoltar.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuPrincipal')}>
           <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('')}>
           <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
@@ -69,7 +79,6 @@ const TelaParabens = ({ route, navigation }) => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -240,4 +249,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TelaParabens;
+export default TelaTenteNovamenteQuiz;

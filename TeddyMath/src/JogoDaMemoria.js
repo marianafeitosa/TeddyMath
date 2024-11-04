@@ -6,15 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 import { db, auth } from './firebaseConfig'; 
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'; // Importação de Firestore
 
-
 const { width } = Dimensions.get('window'); 
 
 const imagens = [
-  { id: 1, type: "Circulo", src: require('../../assets/forma-circulo.png') },
-  { id: 2, type: "Quadrado", src: require('../../assets/forma-quadrado.png') },
-  { id: 3, type: "Triangulo", src: require('../../assets/forma-triangulo.png') },
-  { id: 4, type: "Losango", src: require('../../assets/forma-losango.png') },
-  { id: 5, type: "Estrela", src: require('../../assets/forma-estrela.png') }
+  { id: 1, type: "Circulo", src: require('../assets/forma-circulo.png') },
+  { id: 2, type: "Quadrado", src: require('../assets/forma-quadrado.png') },
+  { id: 3, type: "Triangulo", src: require('../assets/forma-triangulo.png') },
+  { id: 4, type: "Losango", src: require('../assets/forma-losango.png') },
+  { id: 5, type: "Estrela", src: require('../assets/forma-estrela.png') }
 ];
 
 function shuffleCards(array) {
@@ -173,7 +172,7 @@ function App() {
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={{ flex: 1 }}>
       <View style={styles.App}>
         <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-          <Image source={require('../../assets/seta.png')} style={styles.backIcon} />
+          <Image source={require('../assets/seta.png')} style={styles.backIcon} />
         </TouchableOpacity>
         <View style={styles.headerWrapper}>
           <View style={styles.header}>
@@ -183,7 +182,7 @@ function App() {
 
         <View style={styles.timerScoreWrapper}>
           <View style={styles.timerWrapper}>
-            <Image source={require('../../assets/timer.png')} style={styles.timerIcon} />
+            <Image source={require('../assets/timer.png')} style={styles.timerIcon} />
             <Text style={styles.timerText}>{`00:${timeLeft.toString().padStart(2, '0')}`}</Text>
           </View>
           <Text style={styles.scoreText}>Pontuação: {score}</Text> 
@@ -199,7 +198,7 @@ function App() {
               onPress={() => handleCardClick(index)}
               disabled={shouldDisableAllCards || checkIsInactive(card)}
             >
-              <Image style={styles.cardImage} source={checkIsFlipped(index) || checkIsInactive(card) ? card.src : require('../../assets/frente-urso.png')} />
+              <Image style={styles.cardImage} source={checkIsFlipped(index) || checkIsInactive(card) ? card.src : require('../assets/frente-urso.png')} />
             </TouchableOpacity>
           ))}
         </View>

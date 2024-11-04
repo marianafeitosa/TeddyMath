@@ -22,7 +22,9 @@ const Security = ({ navigation }) => {
   const handleAccess = () => {
     if (code === generatedCode.join('')) {
       setAccessGranted(true);
+      Alert.alert('Acesso concedido!', 'Redirecionando para o perfil...');
       navigation.navigate('Perfil'); // Redireciona diretamente ao Perfil
+      setCode(''); // Limpa o código após o acesso
     } else {
       Alert.alert('Código incorreto', 'Tente novamente.');
       generateRandomCode();

@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
-const TelaParabens = ({ route, navigation }) => {
+const TelaParabensquiz = ({ route, navigation }) => {
   const { score, onContinue } = route.params;
 
   // Cria referências de animação para fade e escala
@@ -44,7 +44,7 @@ const TelaParabens = ({ route, navigation }) => {
         <Text style={styles.scoreValue}>{score}</Text>
       </View>
 
-      <TouchableOpacity style={styles.reiniciarButton} onPress={onContinue}>
+      <TouchableOpacity onPress={() => navigation.navigate('SplashQuiz')} style={styles.reiniciarButton}>
         <View style={styles.reiniciarButtonInnerShadow} />
         <Text style={styles.reiniciarButtonText}>Continuar</Text>
         <View style={styles.reiniciarButtonHighlight} />
@@ -52,15 +52,15 @@ const TelaParabens = ({ route, navigation }) => {
       </TouchableOpacity>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SplashJogodaMemoria')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SplashQuiz')}>
           <Image source={require('../assets/botaoVoltar.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuPrincipal')}>
           <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('')}>
           <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
@@ -69,7 +69,6 @@ const TelaParabens = ({ route, navigation }) => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -240,4 +239,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TelaParabens;
+export default TelaParabensquiz;
