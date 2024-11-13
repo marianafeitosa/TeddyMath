@@ -13,6 +13,8 @@ const MenuPrincipal = () => {
       try {
         const name = await AsyncStorage.getItem('childName');
         const gender = await AsyncStorage.getItem('childGender');
+        console.log('Nome:', name); // Adicione logs para verificar
+        console.log('Gênero:', gender);
         if (name !== null && gender !== null) {
           setProfileData({ name, gender });
         }
@@ -36,19 +38,19 @@ const MenuPrincipal = () => {
       {/* Header com o urso e nome da criança */}
       <View style={styles.header}>
         <Image source={getProfileImage()} style={styles.profileImage} />
-        <Text style={styles.greeting}>Olá, {profileData.name}</Text>
+        <Text style={styles.greeting}>Olá, {profileData.name || 'Criança'}</Text>
       </View>
 
       {/* Grid de jogos */}
       <View style={styles.gamesContainer}>
         <TouchableOpacity style={styles.gameButton}
-        onPress={() => navigation.navigate('SplashColore')} >
+          onPress={() => navigation.navigate('SplashColore')} >
           <Image source={require('../assets/Colore.png')} style={styles.gameImage} />
           <Text style={styles.gameText}>Colore</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.gameButton}
-        onPress={() => navigation.navigate('SplashJogodaMemoria')} >
+          onPress={() => navigation.navigate('SplashJogodaMemoria')} >
           <Image source={require('../assets/CacaFormas.png')} style={styles.gameImage} />
           <Text style={styles.gameText}>Caça-Formas</Text>
         </TouchableOpacity>
@@ -60,14 +62,16 @@ const MenuPrincipal = () => {
           <Text style={styles.gameText}>TeddyQuiz</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.gameButton}>
+        <TouchableOpacity style={styles.gameButton}
+         onPress={() => navigation.navigate('Tabuada')} >
           <Image source={require('../assets/Tabuada.png')} style={styles.gameImage} />
-          <Text style={styles.gameText}>Primos</Text>
+          <Text style={styles.gameText}>Tabuada</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

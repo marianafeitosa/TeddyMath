@@ -44,7 +44,7 @@ const TelaParabensquiz = ({ route, navigation }) => {
         <Text style={styles.scoreValue}>{score}</Text>
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('SplashQuiz')} style={styles.reiniciarButton}>
+      <TouchableOpacity style={styles.reiniciarButton} onPress={onContinue}>
         <View style={styles.reiniciarButtonInnerShadow} />
         <Text style={styles.reiniciarButtonText}>Continuar</Text>
         <View style={styles.reiniciarButtonHighlight} />
@@ -60,7 +60,7 @@ const TelaParabensquiz = ({ route, navigation }) => {
           <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('')}>
+        <TouchableOpacity onPress={onContinue}>
           <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>

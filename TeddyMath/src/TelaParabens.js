@@ -2,39 +2,61 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ConfettiCannon from 'react-native-confetti-cannon';
+import { db } from './firebaseConfig'; // Importa o Firestore configurado
+import { doc, getDoc } from "firebase/firestore"; // Importa as funções necessárias do Firestore
 
 const TelaParabens = ({ route, navigation }) => {
   const { score, onContinue } = route.params;
 
-  // Cria referências de animação para fade e escala
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
   useEffect(() => {
-    // Inicia animações de fade-in e zoom ao montar a tela
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 1000, // Duração de 1 segundo
+        duration: 1000,
         useNativeDriver: true,
       }),
       Animated.spring(scaleAnim, {
         toValue: 1,
-        friction: 5,  // Reduzindo a fricção para um efeito mais suave
-        tension: 80,  // Controla a intensidade do "bounce" no final
+        friction: 5,
+        tension: 80,
         useNativeDriver: true,
       }),
     ]).start();
   }, [fadeAnim, scaleAnim]);
 
+  // Função para enviar feedback ao ESP32
+  const enviarFeedback = async () => {
+    try {
+      const docRef = doc(db, "scores", "scoreId");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const score = docSnap.data().score;
+
+        if (score > 80) {
+          await fetch('http://192.168.4.1/tocarFeedbackBom');
+          console.log('Tocando áudio de feedback bom');
+        } else {
+          await fetch('http://192.168.4.1/tocarFeedbackRuim');
+          console.log('Tocando áudio de feedback ruim');
+        }
+      } else {
+        console.log("Documento não encontrado");
+      }
+    } catch (error) {
+      console.error("Erro ao obter a pontuação ou enviar o feedback:", error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.backgroundBox}></View>
 
-      {/* Efeito de parabéns com confetes */}
       <ConfettiCannon count={100} origin={{ x: wp('50%'), y: hp('10%') }} fadeOut={true} fallSpeed={2500} />
 
-      {/* Aplica o fade-in na imagem do logo */}
       <Animated.View style={[styles.logoContainer, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}>
         <Image source={require('../assets/logoParabens.png')} style={styles.logo} />
       </Animated.View>
@@ -44,9 +66,9 @@ const TelaParabens = ({ route, navigation }) => {
         <Text style={styles.scoreValue}>{score}</Text>
       </View>
 
-      <TouchableOpacity style={styles.reiniciarButton} onPress={onContinue}>
+      <TouchableOpacity style={styles.reiniciarButton} onPress={enviarFeedback}>
         <View style={styles.reiniciarButtonInnerShadow} />
-        <Text style={styles.reiniciarButtonText}>Continuar</Text>
+        <Text style={styles.reiniciarButtonText}>Dar Feedback</Text>
         <View style={styles.reiniciarButtonHighlight} />
         <View style={styles.reiniciarButtonLightDot} />
       </TouchableOpacity>
@@ -56,11 +78,11 @@ const TelaParabens = ({ route, navigation }) => {
           <Image source={require('../assets/botaoVoltar.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuPrincipal')}>
           <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onContinue}>
+        <TouchableOpacity onPress={() => navigation.navigate('Configuracoes')}>
           <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>

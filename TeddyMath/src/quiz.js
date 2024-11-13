@@ -1,35 +1,93 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { db } from './firebaseConfig'; 
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native';
+import React, { useState } from 'react';
+import database from '@react-native-firebase/database';
+import { getFirestore } from "firebase/firestore"; // Mantida apenas uma vez
+import { getAnalytics } from "firebase/analytics";
+import CustomText from './CustomText'; // Importação do CustomText
 
 const Quiz = ({ navigation }) => {
   const questions = [
-    { question: "Informe o resultado correto da soma:", operation: "12 + 10", incorrect_answers: ["20", "21", "19"], correct_answer: "22" },
-    { question: "Informe o resultado correto da subtração:", operation: "15 - 6", incorrect_answers: ["10", "9", "7"], correct_answer: "9" },
-    { question: "Informe o resultado correto da multiplicação:", operation: "5 x 3", incorrect_answers: ["16", "14", "13"], correct_answer: "15" },
-    { question: "Informe o resultado correto da divisão:", operation: "20 ÷ 4", incorrect_answers: ["6", "4", "3"], correct_answer: "5" },
-    { question: "Informe o resultado correto da soma:", operation: "8 + 7", incorrect_answers: ["16", "17", "18"], correct_answer: "15" },
-    { question: "Informe o resultado correto da subtração:", operation: "18 - 9", incorrect_answers: ["8", "9", "10"], correct_answer: "9" },
-    { question: "Informe o resultado correto da multiplicação:", operation: "6 x 2", incorrect_answers: ["9", "10", "11"], correct_answer: "12" },
-    { question: "Informe o resultado correto da divisão:", operation: "36 ÷ 6", incorrect_answers: ["4", "5", "7"], correct_answer: "6" },
-    { question: "Informe o resultado correto da soma:", operation: "9 + 7", incorrect_answers: ["12", "13", "15"], correct_answer: "16" },
-    { question: "Informe o resultado da subtração:", operation: "22 - 8", incorrect_answers: ["12", "13", "15"], correct_answer: "14" },
+    {
+      question: "Informe o resultado correto da soma: ",
+      operation: "12 + 10",
+      incorrect_answers: ["20", "21", "19"],
+      correct_answer: "22"
+    },
+    {
+      question: "Informe o resultado correto da subtração: ",
+      operation: "15 - 6",
+      incorrect_answers: ["10", "9", "7"],
+      correct_answer: "9"
+    },
+    {
+      question: "Informe o resultado correto da multiplicação:",
+      incorrect_answers: ["16", "14", "13"],
+      operation: "5 x 3",
+      correct_answer: "15"
+    },
+    {
+      question: "Informe o resultado correto da divisão:",
+      incorrect_answers: ["6", "4", "3"],
+      operation: "20 ÷ 4",
+      correct_answer: "5"
+    },
+    {
+      question: "Informe o resultado correto da soma",
+      incorrect_answers: ["16", "17", "18"],
+      operation: "8 + 7",
+      correct_answer: "15"
+    },
+    {
+      question: "Informe o resultado correto da subtração:",
+      incorrect_answers: ["8", "9", "10"],
+      operation: "18 - 9",
+      correct_answer: "11"
+    },
+    {
+      question: "Informe o resultado correto da multiplicação:",
+      incorrect_answers: ["9", "10", "11"],
+      operation: "6 x 2",
+      correct_answer: "12"
+    },
+    {
+      question: "Informe o resultado correto da divisão:",
+      incorrect_answers: ["4", "5", "7"],
+      operation: "36 ÷ 6",
+      correct_answer: "6"
+    },
+    {
+      question: "Informe o resultado correto da soma:",
+      incorrect_answers: ["12", "13", "15"],
+      operation: "9 + 7",
+      correct_answer: "16"
+    },
+    {
+      question: "Informe o resultado da subtração:",
+      incorrect_answers: ["12", "13", "15"],
+      operation: "22 - 8",
+      correct_answer: "14"
+    },
   ];
 
   const [quesIndex, setQuesIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
+
   const currentQuestion = questions[quesIndex];
   const options = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer].sort(() => Math.random() - 0.5);
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
     if (answer === currentQuestion.correct_answer) {
-      setScore(score + 10);
-      Alert.alert("Correct!", "Good job!", [{ text: "OK", onPress: () => handleNext() }]);
+      const newScore = score + 10;
+      setScore(newScore);
+      Alert.alert("Correct!", "Good job!", [
+        { text: "OK", onPress: () => handleNext() },
+      ]);
     } else {
-      Alert.alert("Incorrect", "Try again!", [{ text: "OK", onPress: () => handleNext() }]);
+      Alert.alert("Incorrect", "Try again!", [
+        { text: "OK", onPress: () => handleNext() },
+      ]);
     }
   };
 
@@ -38,35 +96,36 @@ const Quiz = ({ navigation }) => {
       setQuesIndex(quesIndex + 1);
       setSelectedAnswer(null);
     } else {
-      saveScoreToFirestore();
-      
-      // Verificação para direcionamento de tela
-      if (score >= 80) {
-        navigation.navigate('TelaParabensquiz', { score });
-      } else {
-        navigation.navigate('TelaTenteNovamenteQuiz', { score });
-      }
+      saveScore();
+      navigation.navigate('ResultQuiz', { score, total: questions.length });
     }
   };
 
-  const saveScoreToFirestore = async () => {
+  const saveScore = async () => {
     try {
-      await addDoc(collection(db, 'scores'), {
+      await database().ref('teddymath-16ca5/scores').push({
         score: score,
-        total: questions.length * 10,
-        timestamp: serverTimestamp(),
-        jogo: "JogoQuiz"
+        date: new Date().toISOString(),
       });
-      console.log('Pontuação salva com sucesso no Firestore!');
+      Alert.alert("Score saved!", "Your score has been saved.");
     } catch (error) {
-      console.error('Erro ao salvar pontuação no Firestore:', error);
+      console.error("Error saving score: ", error);
+      Alert.alert("Error", "Could not save your score.");
     }
+  };
+
+  const handleSkip = () => {
+    handleNext();
+  };
+
+  const handleEnd = () => {
+    navigation.navigate('SplashQuiz');
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.questionNumber}>Pergunta {quesIndex + 1} de {questions.length}</Text>
+        <Text style={styles.questionNumber}>Perguntas {quesIndex + 1} de {questions.length}</Text>
         <Text style={styles.score}>Pontuação: {score}</Text>
       </View>
 
@@ -83,7 +142,7 @@ const Quiz = ({ navigation }) => {
                   index === 1 && styles.optionButton2,
                   index === 2 && styles.optionButton3,
                   index === 3 && styles.optionButton4,
-                  selectedAnswer === option && { backgroundColor: '#FF6F61' }
+                  selectedAnswer === option && { backgroundColor: '#FF6F61' } // Cor ao selecionar
                 ]}
                 onPress={() => handleAnswerSelect(option)}
                 disabled={selectedAnswer !== null}
@@ -94,6 +153,7 @@ const Quiz = ({ navigation }) => {
           </View>
         </View>
       )}
+
     </View>
   );
 };

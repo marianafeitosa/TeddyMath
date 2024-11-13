@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { auth, db } from './firebaseConfig'; 
@@ -12,8 +12,6 @@ const Signup = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [phone, setPhone] = useState('');
-  const [date, setDate] = useState(new Date());
-  const [showDatePicker, setShowDatePicker] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -34,7 +32,6 @@ const Signup = ({ navigation }) => {
         name,
         email,
         phone,
-        birthdate: date.toLocaleDateString(),
       });
 
       navigation.navigate('Login');
@@ -57,12 +54,6 @@ const Signup = ({ navigation }) => {
     }
   };
 
-  const onDateChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShowDatePicker(false);
-    setDate(currentDate);
-  };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
@@ -72,7 +63,7 @@ const Signup = ({ navigation }) => {
       <Text style={styles.title}>Cadastre-se</Text>
 
       <TextInput
-        placeholder="Nome"
+        placeholder="Usuário"
         value={name}
         onChangeText={setName}
         style={styles.input}
@@ -114,32 +105,12 @@ const Signup = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <TextInputMask
-        type={'cel-phone'}
-        options={{ maskType: 'BRL', withDDD: true, dddMask: '(99) ' }}
-        placeholder="Número"
-        value={phone}
-        onChangeText={setPhone}
-        style={styles.input}
-        placeholderTextColor="#BFBFBF"
-      />
-
-      <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.input}>
-        <Text style={{ color: date ? '#000' : '#BFBFBF' }}>
-          {date ? date.toLocaleDateString() : 'mm/dd/yyyy'}
-        </Text>
-      </TouchableOpacity>
-      {showDatePicker && (
-        <DateTimePicker
-          value={date}
-          mode="date"
-          display="default"
-          onChange={onDateChange}
-        />
-      )}
-
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
         <Text style={styles.buttonText}>Cadastrar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => Alert.alert('Cadastro com outras plataformas')}>
+        <Text style={styles.signupWith}>Cadastre-se com</Text>
       </TouchableOpacity>
     </View>
   );
@@ -178,7 +149,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderWidth: 1,
     borderColor: '#DADADA',
-    justifyContent: 'center',
   },
   passwordContainer: {
     width: '100%',
@@ -214,6 +184,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  signupWith: {
+    color: '#7FB6AE',
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 10,
   },
 });
 

@@ -17,8 +17,8 @@ import WelcomeScreen from './src/WelcomeScreen';
 import SplashQuiz from './src/SplashQuiz'; 
 import SplashColore from './src/SplashColore';
 import JogoColorir from './src/JogoColorir';
-import ProgressoCrianca from './src/ProgressoCrianca';
 import Quiz from './src/quiz'; 
+import ResultQuiz from './src/resultquiz'; 
 import JogoDaMemoria from './src/JogoDaMemoria';
 import TelaParabens from './src/TelaParabens';
 import SplashJogodaMemoria from './src/SplashJogodaMemoria';
@@ -26,13 +26,12 @@ import TelaTenteNovamente from './src/TelaTenteNovamente';
 import { AppRegistry } from 'react-native';
 import { name as appName } from './app.json';
 import { StyleSheet } from 'react-native';
-import TelaTenteNovamenteQuiz from './src/TelaTenteNovamenteQuiz';
-import TelaParabensquiz from './src/TelaParabensquiz';
+import TabuadaScreen from './src/Tabuada';
+import CustomText from './src/CustomText'; // Ajuste aqui para refletir que está na mesma pasta
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     Poppins_600SemiBold,
     Poppins_700Bold,
@@ -45,6 +44,7 @@ export default function App() {
       </View>
     );
   }
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash">
@@ -57,25 +57,19 @@ export default function App() {
         <Stack.Screen name="MenuPrincipal" component={MenuPrincipal} options={{ headerShown: false }} /> 
         <Stack.Screen name="CreateProfileScreen" component={CreateProfileScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="MyTabs" component={MyTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="MainTabs" component={MyTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Perfil" component={Perfil} options={{ headerShown: false }} /> 
-        <Stack.Screen name="ProgressoCrianca" component={ProgressoCrianca} options={{ headerShown: false }} /> 
-
+        <Stack.Screen name="Tabuada" component={TabuadaScreen} options={{ headerShown: false }} />
         <Stack.Screen name="JogoColorir" component={JogoColorir} options={{ headerShown: false }} /> 
         <Stack.Screen name="SplashColore" component={SplashColore} options={{ headerShown: false }} />
-       
-
         <Stack.Screen name="SplashQuiz" component={SplashQuiz} options={{ headerShown: false }} />
         <Stack.Screen name="Quiz" component={Quiz} options={{ headerShown: false }} />
-        <Stack.Screen name="TelaParabensquiz" component={TelaParabensquiz} options={{ headerShown: false }}/>
-        <Stack.Screen name="TelatentenovamenteQuiz" component={TelaTenteNovamenteQuiz} options={{ headerShown: false }}/>
-
-        <Stack.Screen name="SplashJogodaMemoria" component={SplashJogodaMemoria} options={{ headerShown: false }}/>
-        <Stack.Screen name="JogoDaMemoria" component={JogoDaMemoria} options={{ headerShown: false }}/>
-        <Stack.Screen name="TelaParabens" component={TelaParabens} options={{ headerShown: false }}/>
-        <Stack.Screen name="TelaTenteNovamente" component={TelaTenteNovamente} options={{ headerShown: false }}/>
+        <Stack.Screen name="ResultQuiz" component={ResultQuiz} options={{ headerShown: false }} />
+        <Stack.Screen name="SplashJogodaMemoria" component={SplashJogodaMemoria} options={{ headerShown: false }} />
+        <Stack.Screen name="JogoDaMemoria" component={JogoDaMemoria} options={{ headerShown: false }} />
+        <Stack.Screen name="TelaParabens" component={TelaParabens} options={{ headerShown: false }} />
+        <Stack.Screen name="TelaTenteNovamente" component={TelaTenteNovamente} options={{ headerShown: false }} />
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }

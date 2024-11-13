@@ -70,7 +70,7 @@ useEffect(() => {
           <Image source={require('../assets/botaoHome.png')} style={styles.button} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('')}>
+        <TouchableOpacity onPress={onContinue}>
           <Image source={require('../assets/botaoConfiguracoes.png')} style={styles.button} />
         </TouchableOpacity>
       </View>

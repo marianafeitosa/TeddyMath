@@ -1,62 +1,72 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-import { addDoc, collection } from 'firebase/firestore';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { db } from './firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
 
 const CadastroIdade = ({ route, navigation }) => {
   const { nome, genero } = route.params;
   const [idade, setIdade] = useState('');
 
   const saveChildData = async () => {
-    if (!nome || !genero || !idade) {
-      Alert.alert('Atenção', 'Por favor, preencha todos os campos.');
-      return;
-    }
-
     try {
-      console.log('Dados salvos no Firestore:', { nome, genero, idade });
-
       await addDoc(collection(db, 'Criancas'), {
         nome: nome,
         genero: genero,
         idade: idade,
       });
-
-      navigation.navigate('MyTabs', { nome, genero, idade });
+      // Navega para MainTabs, passando nome, genero e idade
+      navigation.navigate('MainTabs', { nome, genero, idade });
     } catch (error) {
       console.error("Erro ao salvar dados no Firestore: ", error);
       Alert.alert('Erro', 'Erro ao salvar os dados. Tente novamente.');
     }
   };
 
+  const handleNext = () => {
+    if (idade) {
+      saveChildData();
+    } else {
+      Alert.alert('Aviso', 'Selecione a idade para prosseguir.');
+    }
+  };
+
   return (
     <View style={styles.container}>
-      
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        </TouchableOpacity>
+        <View style={styles.progressBar}>
+          <View style={[styles.progressStep, styles.activeStep]} />
+          <View style={[styles.progressStep, styles.activeStep]} />
+          <View style={[styles.progressStep, styles.activeStep]} />
+        </View>
+      </View>
+
       <Text style={styles.title}>Quantos anos tem a criança?</Text>
 
-<TouchableOpacity
-  style={[styles.ageButton, idade === '6' && styles.ageButtonSelected]}
-  onPress={() => setIdade('6')}
->
-  <Text style={styles.ageText}>6 anos</Text>
-</TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.ageButton, idade === '6' && styles.ageButtonSelected]}
+        onPress={() => setIdade('6')}
+      >
+        <Text style={styles.ageText}>6 anos</Text>
+      </TouchableOpacity>
 
-<TouchableOpacity
-  style={[styles.ageButton, idade === '7' && styles.ageButtonSelected]}
-  onPress={() => setIdade('7')}
->
-  <Text style={styles.ageText}>7 anos</Text>
-</TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.ageButton, idade === '7' && styles.ageButtonSelected]}
+        onPress={() => setIdade('7')}
+      >
+        <Text style={styles.ageText}>7 anos</Text>
+      </TouchableOpacity>
 
-<TouchableOpacity
-  style={[styles.ageButton, idade === '8' && styles.ageButtonSelected]}
-  onPress={() => setIdade('8')}
->
-  <Text style={styles.ageText}>8 anos</Text>
-</TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.ageButton, idade === '8' && styles.ageButtonSelected]}
+        onPress={() => setIdade('8')}
+      >
+        <Text style={styles.ageText}>8 anos</Text>
+      </TouchableOpacity>
 
-      <TouchableOpacity style={styles.nextButton} onPress={saveChildData}>
-        <Text style={styles.nextButtonText}>Salvar</Text>
+      <TouchableOpacity style={styles.nextButton} onPress={handleNext} disabled={!idade}>
+        <Text style={styles.nextButtonText}>Próximo</Text>
       </TouchableOpacity>
     </View>
   );

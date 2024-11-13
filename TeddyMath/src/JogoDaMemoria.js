@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { db, auth } from './firebaseConfig'; 
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'; // Importação de Firestore
 
+
 const { width } = Dimensions.get('window'); 
 
 const imagens = [

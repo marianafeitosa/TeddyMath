@@ -5,7 +5,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage"; // Certifi
 import { getFirestore } from "firebase/firestore"; // Importação do Firestore
 import { getAnalytics } from "firebase/analytics";
 
-
 // Configurações do seu aplicativo Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyADYtObr-yGAXg8PL5_GSudBr9F6_RPrJU",
@@ -32,24 +31,11 @@ try {
   }
 }
 
-const saveChildData = async (nome, genero, idade) => {
-  try {
-    const docRef = await addDoc(collection(db, 'Criancas'), {
-      nome: nome,
-      genero: genero,
-      idade: idade,
-    });
-  
-    console.log('Documento escrito com ID: ', docRef.id);
-  } catch (e) {
-    console.error('Erro ao adicionar documento: ', e);
-  }
-};
-
-// Exporta as funções necessárias
-export { db, auth, saveChildData };
 // Inicialize o Analytics (opcional)
 const analytics = getAnalytics(app);
 
 // Inicialize o Firestore
 const db = getFirestore(app);
+
+// Exporta as funções necessárias
+export { db, auth };
