@@ -1,4 +1,5 @@
-/* FONTE */
+/* importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 @font-face {
   font-family: 'Adelia';
@@ -6,13 +7,17 @@
 }
 
 
+
+
 body {
   font-family: 'Poppins', sans-serif;
-  padding-top: 50px; 
+  font-weight: 500; /* Define a variação Medium (500) */
+  padding-top: 50px; /* Ajuste a altura conforme necessário */
   margin: 0;
   padding: 0;
   background-color: #fffff2;
 }
+
 
 header {
   background-color: #F2D5A0;
@@ -20,12 +25,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-radius: 40px; 
+  border-radius: 40px; /* Define os cantos arredondados */
 }
 
 header .logo img {
-  height: 100px; 
-  width: auto; 
+  height: 100px; /* Defina a altura desejada */
+  width: auto; /* Mantém a proporção */
 }
 
 
@@ -46,7 +51,7 @@ nav ul li a {
   font-weight: bold;
   padding: 0.5rem 1rem;
   transition: color 0.3s, background-color 0.3s;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
 
 }
 
@@ -61,7 +66,7 @@ nav ul li a:hover {
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
-  background-color: #FFF0F0;
+
 }
 .hero-text {
   max-width: 500px;
@@ -71,8 +76,8 @@ nav ul li a:hover {
   color: #fff;
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-family: 'Adelia', cursive; 
-  background-color: #FFADB4; 
+  font-family: 'Adelia', cursive; /* Aplicar a fonte personalizada */
+  background-color: #FFADB4; /* Fundo rosa atrás do texto */
   box-shadow: #333;
   padding: 1rem;
   border-radius: 50px;
@@ -109,10 +114,10 @@ nav ul li a:hover {
   content: "";
   display: block;
   position: absolute;
-  top: -20px; 
+  top: -20px; /* Ajuste conforme necessário */
   left: 0;
   width: 100%;
-  height: 40px; 
+  height: 40px; /* Ajuste conforme necessário */
   background: url('img/wave.svg') repeat-x;
 }
 .feature-container {
@@ -124,13 +129,13 @@ nav ul li a:hover {
 }
 
 .feature img {
-  max-width: 500px; 
+  max-width: 500px; /* Aumenta o tamanho máximo da imagem */
   border-radius: 10px;
-  width: 100%;
-  position: relative; 
-  top: -200px;
-  left: 20px; 
-  transform: scale(1.3); 
+  width: 100%; /* Mantém a largura automática */
+  position: relative; /* ou 'absolute' se precisar de posicionamento exato */
+  top: -200px; /* Ajuste conforme necessário para sobrepor a onda */
+  left: 20px; /* Ajuste conforme necessário para mover a imagem para a direita */
+  transform: scale(1.3); /* Ajusta a escala da imagem */
 }
 
 
@@ -147,25 +152,42 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  box-sizing: border-box; 
+  box-sizing: border-box; /* Include padding in the width */
 }
 
 .container2 .card {
   position: relative;
   padding: 10px;
   width: 300px;
-  background-color: #9CDBC8;
   margin: 20px;
-  border: 1px solid #9CDBC8;
   border-radius: 20px;
   overflow: hidden;
   transition: 0.5s;
   text-align: center;
-  box-sizing: border-box; 
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+/* Primeira cor para o primeiro card */
+.container2 .card.card-1 {
+  background-color: #9cdbc8; /* Cor laranja suave */
+  border: 1px solid #9cdbc8;
+}
+
+/* Segunda cor para o segundo card */
+.container2 .card.card-2 {
+  background-color: #ffadb4; /* Cor amarela brilhante */
+  border: 1px solid #ffadb4;
+}
+
+/* Terceira cor para o terceiro card */
+.container2 .card.card-3 {
+  background-color: #eeb5eb; /* Cor roxa média */
+  border: 1px solid #eeb5eb;
+}
 
 .container2 .card img {
   transition: 0.5s;
-  margin: 0 auto; 
+  margin: 0 auto; /* Centraliza a imagem */
 }
 
 .container2 .card h1 {
@@ -195,11 +217,9 @@ nav ul li a:hover {
 }
 
 .container2 .card:hover {
-  background-color: #9CDBC8;
   color: #fff;
   margin-top: -30px;
-  box-shadow: 2px 20px 25px #253125;
-  border-color: #9CDBC8 ;
+  box-shadow: 2px 20px 25px rgba(0, 0, 0, 0.3); 
 }
 
 .container2 .card:hover img {
@@ -210,6 +230,14 @@ nav ul li a:hover {
   color: white;
 }
 
+.urso-img {
+  width: 300px; 
+  height: auto; 
+  margin: -60px auto 0; 
+  display: block; 
+}
+
+
 /* COMO FUNCIONA */
 .intro {
   width: 60%;
@@ -218,13 +246,17 @@ nav ul li a:hover {
   font-size: 2em;
   margin: 10px 0;
   color: #7D51A5;
-  padding: 5px;
+  padding: 0 30px;
+  text-shadow: 2px 2px 5px rgba(125, 81, 165, 0.4); /* Sombra roxinha clara */
 }
+
 .intro p {
   font-size: 1.2em;
   color: #5F4B8B;
   margin: 20px 0;
+  text-shadow: 1px 1px 3px rgba(125, 81, 165, 0.3); /* Sombra roxinha clara */
 }
+
 .steps {
   display: flex;
   justify-content: space-between;
@@ -233,41 +265,60 @@ nav ul li a:hover {
 .step {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px; 
+  margin-bottom: 20px; /* Espaçamento entre os steps */
+  max-width: 800px; /* Limita a largura do step */
+  width: 100%;
+}
+.step p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Fonte Medium */
+  font-size: 1.1em;
+  color: #000000;
+  margin: 0;
+  line-height: 2;
+  max-width: 800px; /* Ajuste conforme necessário */
+  text-align: left;
 }
 
 .step img {
-  max-width: 40px; 
+  max-width: 95px; /* Ajuste o tamanho conforme necessário */
   height: auto;
-  margin-right: 15px; 
+  margin-right: 1px; /* Espaço entre o número e o texto */
 }
 
 .app-preview {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-top: -80px; /* Sobe um pouco a imagem */
+  width: 60%; /* Aumenta a largura da imagem significativamente */
 }
 
 .app-preview img {
-  max-width: 100%;
+  width: 500%; /* Aumenta a largura da imagem significativamente */
   height: auto;
+  margin-right: 200px; /* Espaço entre a imagem e o conteúdo à direita */
 }
 
+
 .download-buttons {
-  margin-top: 20px;
+  margin-top: -80px; 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Alinha os botões à esquerda */
+  margin-left: 400px; /* Ajuste a margem esquerda conforme necessário */
 }
+
 .download-buttons a {
   margin: 0 10px;
 }
+
 .download-buttons img {
-  width: 150px;
+  width: 180px;
   transition: transform 0.3s ease;
 }
+
 .download-buttons img:hover {
   transform: scale(1.05);
 }
-
 
 /* DESENVOLVEDORAS */
 .desenvolvedoras {
@@ -277,8 +328,9 @@ nav ul li a:hover {
 
 .desenvolvedoras h2 {
   font-size: 2.5rem;
-  color: #f39c12; 
+  color: #f39c12; /* Cor laranja */
   margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(243, 156, 18, 0.5); /* Sombra laranja claro */
 }
 
 .developer {
@@ -309,7 +361,7 @@ nav ul li a:hover {
   font-size: 1.2rem;
   margin-bottom: 15px;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
 
 }
 
@@ -324,36 +376,38 @@ nav ul li a:hover {
   height: 100;
 }
 
+
+/* Cores individuais dos cards */
 .card-blue {
-  background-color: #8ac6ff; 
+  background-color: #8ac6ff; /* Azul para Letícia */
 }
 
 .card-pink {
-  background-color: #f7b2ff; 
+  background-color: #f7b2ff; /* Rosa para Mariana */
 }
 
 .card-green {
-  background-color: #9ce5c3; 
+  background-color: #9ce5c3; /* Verde para Yasmin */
 }
 
 /* CONTATO */
 .contato-container {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between; /* Mantém a imagem à esquerda e o formulário à direita */
   align-items: center;
   padding: 50px;
 }
 
 .contato-imagem {
-  order: 1; 
+  order: 1; /* Garante que a imagem esteja à esquerda */
 }
 
 .contato-imagem img {
-  width: 550px; 
+  width: 550px; /* Aumenta o tamanho da imagem do urso */
 }
 
 .contato-formulario {
-  order: 2; 
+  order: 2; /* Garante que o formulário esteja à direita */
   max-width: 400px;
 
   padding: 30px;
@@ -365,22 +419,22 @@ nav ul li a:hover {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 50px; 
+  border-radius: 50px; /* Bordas arredondadas */
   border: 2px solid #CCC;
   font-size: 18px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-  outline: none; 
-  transition: box-shadow 0.3s ease-in-out; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  outline: none; /* Remove o contorno padrão */
+  transition: box-shadow 0.3s ease-in-out; /* Efeito de foco suave */
 }
 
 .contato-formulario form input:focus,
 .contato-formulario form textarea:focus {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte no foco */
 }
 
 .contato-formulario form textarea {
   height: 150px;
-  border-radius: 30px; 
+  border-radius: 30px; /* Ajuste no arredondamento da área de texto */
 }
 
 .contato-formulario form button {
@@ -389,21 +443,21 @@ nav ul li a:hover {
   background-color: #F7AAB7;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 50px; /* Bordas arredondadas no botão */
   font-size: 18px;
-  font-weight: bold; 
+  font-weight: bold; /* Texto em negrito */
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra no botão */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efeito de hover */
 }
 
 .contato-formulario form button:hover {
-  background-color: #f58a9c;
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f58a9c; /* Cor de fundo mais escura no hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
 }
 
-
+/* Título "Contato" */
 #contato h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -411,7 +465,7 @@ nav ul li a:hover {
   text-align: center;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   background-color: #FDEBCF;
   padding: 20px;
@@ -420,12 +474,12 @@ footer {
 
 .footer-container {
   display: flex;
-  justify-content: space-between; 
-  align-items: flex-start; 
+  justify-content: space-between; /* Garante que o conteúdo fique distribuído */
+  align-items: flex-start; /* Alinha o conteúdo principal à esquerda */
 }
 
 .footer-contato {
-  flex-grow: 1; 
+  flex-grow: 1; /* Faz com que a seção de contato ocupe o máximo de espaço à esquerda */
 }
 
 .footer-contato p {
@@ -433,16 +487,16 @@ footer {
   display: flex;
   align-items: center;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: bold; /* Negrito */
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
 
 }
 
 .footer-contato img {
-  width: 50px; 
-  height: auto; 
-  margin-right: 8px; 
+  width: 50px; /* Ajuste o valor conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
 }
 
 
@@ -452,14 +506,14 @@ footer img {
   margin: 5px 0;
 }
 
-
+/* Copyright no canto inferior direito */
 .footer-copyright {
   position: absolute;
   right: 20px;
   bottom: 20px;
   font-size: 16px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
 
 }
 
@@ -486,4 +540,7 @@ footer img {
 #back-to-top:hover {
   background-color: #ffd8de;
 }
-}
+
+
+
+
