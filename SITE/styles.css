@@ -1,4 +1,4 @@
-/* importando a fonte */
+/* Importando a fonte */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 @font-face {
@@ -7,32 +7,37 @@
 }
 
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; 
+}
 
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-weight: 500; /* Define a variação Medium (500) */
-  padding-top: 50px; /* Ajuste a altura conforme necessário */
+  font-weight: 500; 
+  padding-top: 50px; 
   margin: 0;
   padding: 0;
   background-color: #fffff2;
 }
 
-
 header {
-  background-color: #F2D5A0;
+  background-color: #fae1a3;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-radius: 40px; /* Define os cantos arredondados */
+  border-radius: 40px; 
+  margin-bottom: 0;
 }
 
 header .logo img {
-  height: 100px; /* Defina a altura desejada */
-  width: auto; /* Mantém a proporção */
+  height: 120px; 
+  width: auto; 
 }
-
 
 nav ul {
   list-style: none;
@@ -51,8 +56,7 @@ nav ul li a {
   font-weight: bold;
   padding: 0.5rem 1rem;
   transition: color 0.3s, background-color 0.3s;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
-
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 nav ul li a:hover {
@@ -65,28 +69,52 @@ nav ul li a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
-
+  padding: 1rem;
+  margin-bottom: -2rem; 
 }
+
 .hero-text {
-  max-width: 500px;
+  max-width: 620px;
+  margin-top: -6rem; 
 }
 
 .hero-text h1 {
   color: #fff;
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-family: 'Adelia', cursive; /* Aplicar a fonte personalizada */
-  background-color: #FFADB4; /* Fundo rosa atrás do texto */
+  font-family: 'Adelia', cursive; 
+  background-color: #FFADB4; 
   box-shadow: #333;
   padding: 1rem;
-  border-radius: 50px;
-  text-align:justify;
+  border-radius: 38px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra */
 }
+
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem; 
+    padding: 0.8rem; 
+    border-radius: 28px; 
+    margin-top: 8rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+    padding: 0.6rem; 
+    border-radius: 18px; 
+    margin-top: 8rem; 
+  }
+}
+
+
 .hero-text p {
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem; 
 }
+
 .hero-text button {
   font-weight: bold;
   background-color: #FFADB4;
@@ -94,10 +122,45 @@ nav ul li a:hover {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 18px;
+  font-size: 1rem; 
+  margin-top: 2rem; 
 }
+
 .hero-text button:hover {
   background-color: #F684A3;
+}
+
+
+@media (max-width: 768px) {
+  .hero-text p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0 1rem 3rem; 
+  }
+
+  .hero-text button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 3.5rem; 
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text p {
+    font-size: 0.8rem;
+    margin: 0 0.5rem 3rem; 
+  }
+
+  .hero-text button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    width: 100%;
+    margin-bottom: 4rem; 
+  }
 }
 
 .hero-image img {
@@ -109,42 +172,66 @@ nav ul li a:hover {
   background-color: #F2D5A0;
   padding: 2rem;
   width: 100%;
+  overflow: hidden; 
 }
-.features::before {
-  content: "";
-  display: block;
+
+.wave-background {
   position: absolute;
-  top: -20px; /* Ajuste conforme necessário */
+  top: 550px; 
   left: 0;
   width: 100%;
-  height: 40px; /* Ajuste conforme necessário */
-  background: url('img/wave.svg') repeat-x;
+  z-index: 0; 
 }
-.feature-container {
-  display: flex;
-  justify-content: space-around;
+
+.wave-image {
+  width: 100%;
+  height: auto; 
 }
+
 .feature {
   position: relative;
+  z-index: 1; 
 }
 
 .feature img {
-  max-width: 500px; /* Aumenta o tamanho máximo da imagem */
+  max-width: 500px;
   border-radius: 10px;
-  width: 100%; /* Mantém a largura automática */
-  position: relative; /* ou 'absolute' se precisar de posicionamento exato */
-  top: -200px; /* Ajuste conforme necessário para sobrepor a onda */
-  left: 20px; /* Ajuste conforme necessário para mover a imagem para a direita */
-  transform: scale(1.3); /* Ajusta a escala da imagem */
+  width: 100%;
+  position: relative;
+  top: -210px; 
+  left: 90px;
+  transform: scale(1.3);
 }
 
+
+@media (max-width: 768px) {
+  .feature img {
+    display: none; 
+  }
+}
 
 .text-center {
   text-align: center;
 }
 
-/* SOBRE O BRINQUEDO */
+@media (max-width: 768px) {
+  .hero-image img,
+  .feature img {
+    display: none; 
+  }
+}
 
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none; 
+  }
+
+  header {
+    justify-content: center; 
+  }
+}
+/* SOBRE O BRINQUEDO */
 .container2 {
   width: 100%;
   padding: 20px;
@@ -152,7 +239,8 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  box-sizing: border-box; /* Include padding in the width */
+  box-sizing: border-box; 
+  margin-top: -250px; 
 }
 
 .container2 .card {
@@ -164,30 +252,29 @@ nav ul li a:hover {
   overflow: hidden;
   transition: 0.5s;
   text-align: center;
-  box-sizing: border-box; /* Include padding in the width */
+  box-sizing: border-box; 
 }
 
-/* Primeira cor para o primeiro card */
+
 .container2 .card.card-1 {
-  background-color: #9cdbc8; /* Cor laranja suave */
+  background-color: #9cdbc8; 
   border: 1px solid #9cdbc8;
 }
 
-/* Segunda cor para o segundo card */
 .container2 .card.card-2 {
-  background-color: #ffadb4; /* Cor amarela brilhante */
+  background-color: #ffadb4; 
   border: 1px solid #ffadb4;
 }
 
-/* Terceira cor para o terceiro card */
+
 .container2 .card.card-3 {
-  background-color: #eeb5eb; /* Cor roxa média */
+  background-color: #eeb5eb; 
   border: 1px solid #eeb5eb;
 }
 
 .container2 .card img {
   transition: 0.5s;
-  margin: 0 auto; /* Centraliza a imagem */
+  margin: 0 auto; 
 }
 
 .container2 .card h1 {
@@ -196,6 +283,7 @@ nav ul li a:hover {
 }
 
 .container2 .card .content {
+  color: #ffffff;
   padding: 20px;
   text-align: center;
 }
@@ -238,6 +326,52 @@ nav ul li a:hover {
 }
 
 
+@media (max-width: 768px) {
+  .container2 {
+    flex-direction: column;
+    margin-top: 105px; 
+    padding: 0 10px; 
+  }
+
+  .container2 .card {
+    width: 90%; 
+    margin: 20px auto; 
+    padding: 15px; 
+    border-radius: 20px;
+  }
+
+  .urso-img {
+    width: 80%; 
+    margin: 20px auto 0; 
+  }
+}
+
+@media (max-width: 480px) {
+  .container2 {
+    padding: 0 15px; 
+  }
+
+  .container2 .card {
+    padding: 10px; 
+    margin: 15px auto;
+  }
+
+  .container2 .card h1 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+  }
+
+  .container2 .card .content p {
+    font-size: 0.9rem;
+    margin-bottom: 10px; 
+  }
+
+  .container2 .card .content a {
+    margin-top: 15px;
+  }
+}
+
+
 /* COMO FUNCIONA */
 .intro {
   width: 60%;
@@ -247,64 +381,68 @@ nav ul li a:hover {
   margin: 10px 0;
   color: #7D51A5;
   padding: 0 30px;
-  text-shadow: 2px 2px 5px rgba(125, 81, 165, 0.4); /* Sombra roxinha clara */
+  text-shadow: 2px 2px 5px rgba(125, 81, 165, 0.4); 
+  margin-left: 200px; 
 }
 
 .intro p {
   font-size: 1.2em;
   color: #5F4B8B;
   margin: 20px 0;
-  text-shadow: 1px 1px 3px rgba(125, 81, 165, 0.3); /* Sombra roxinha clara */
+  text-shadow: 1px 1px 3px rgba(125, 81, 165, 0.3); 
+  margin-left: 200px; 
 }
 
 .steps {
   display: flex;
   justify-content: space-between;
+  margin-left: 200px; 
 }
+
 
 .step {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px; /* Espaçamento entre os steps */
-  max-width: 800px; /* Limita a largura do step */
+  margin-bottom: 20px; 
+  max-width: 800px; 
   width: 100%;
 }
 .step p {
   font-family: 'Poppins', sans-serif;
-  font-weight: 500; /* Fonte Medium */
+  font-weight: 500; 
   font-size: 1.1em;
   color: #000000;
   margin: 0;
   line-height: 2;
-  max-width: 800px; /* Ajuste conforme necessário */
+  max-width: 800px; 
   text-align: left;
 }
 
 .step img {
-  max-width: 95px; /* Ajuste o tamanho conforme necessário */
+  max-width: 95px; 
   height: auto;
-  margin-right: 1px; /* Espaço entre o número e o texto */
+  margin-right: 1px; 
 }
 
 .app-preview {
   display: flex;
   justify-content: flex-start;
-  margin-top: -80px; /* Sobe um pouco a imagem */
-  width: 60%; /* Aumenta a largura da imagem significativamente */
+  margin-top: -80px; 
+  width: 60%; 
 }
 
 .app-preview img {
-  width: 500%; /* Aumenta a largura da imagem significativamente */
+  width: 500%; 
   height: auto;
-  margin-right: 200px; /* Espaço entre a imagem e o conteúdo à direita */
+  margin-right: 200px; 
 }
 
 
 .download-buttons {
   margin-top: -80px; 
   display: flex;
-  justify-content: flex-start; /* Alinha os botões à esquerda */
-  margin-left: 400px; /* Ajuste a margem esquerda conforme necessário */
+  justify-content: flex-start; 
+  margin-left: 400px; 
 }
 
 .download-buttons a {
@@ -320,96 +458,225 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* DESENVOLVEDORAS */
-.desenvolvedoras {
+@media (max-width: 768px) {
+  .intro {
+    width: 100%;
+    text-align: center; 
+    margin: 0 auto; 
+    padding: 10px 15px; 
+    text-shadow: 2px 2px 5px rgba(125, 81, 165, 0.4); 
+  }
+  .intro h1 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    padding: 0;
+    text-shadow: 2px 2px 5px rgba(125, 81, 165, 0.4); 
+  }
+
+  .intro p {
+    font-size: 1em; 
+    margin: 15px auto; 
+    padding: 0 10px; 
+    text-shadow: none; 
+  }
+
+  .steps {
+    flex-direction: column; 
+    margin: 0 auto; 
+    padding: 0 15px; 
+  }
+
+  .step {
+    flex-direction: column; 
+    align-items: center; 
+    margin: 15px auto; 
+    padding: 10px; 
+  }
+
+  .step img {
+    display: none; 
+  }
+
+  .app-preview {
+    display: none; 
+  }
+
+  .download-buttons {
+    margin: 20px auto; 
+    padding: 0 15px;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .download-buttons img {
+    width: 150px; 
+    margin-bottom: 10px; 
+  }
+}
+
+
+/* DESENVOLVEDORAS*/
+.developers {
   text-align: center;
   padding: 50px 0;
 }
 
-.desenvolvedoras h2 {
+.developers h2 {
   font-size: 2.5rem;
-  color: #f39c12; /* Cor laranja */
+  color: #f39c12;
   margin-bottom: 40px;
-  text-shadow: 2px 2px 5px rgba(243, 156, 18, 0.5); /* Sombra laranja claro */
+  text-shadow: 2px 2px 5px rgba(243, 156, 18, 0.5);
+}
+
+.developers-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .developer {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-}
-
-.card {
-  border-radius: 20px;
   padding: 20px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgb(255, 255, 255);
-  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 325px;
 }
 
-.card img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-.card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
-
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: -10px;
-}
-
-.social-icons a img {
-  width: 100px; 
-  height: 100;
-}
-
-
-/* Cores individuais dos cards */
 .card-blue {
-  background-color: #8ac6ff; /* Azul para Letícia */
+  background-color: #8ac6ff; 
 }
 
 .card-pink {
-  background-color: #f7b2ff; /* Rosa para Mariana */
+  background-color: #f7b2ff; 
 }
 
 .card-green {
-  background-color: #9ce5c3; /* Verde para Yasmin */
+  background-color: #9ce5c3; 
 }
+
+.developer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden;
+  text-wrap: wrap;
+}
+
+.developer h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif; 
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.developer p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600; 
+  font-family: 'Poppins', sans-serif; 
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-links {
+  display: flex;
+  margin-left: -45px; 
+}
+
+.social-links li {
+  display: inline-block;
+}
+
+.social-links a img {
+  width: 40px; 
+  height: 40px; 
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .developers h2 {
+    margin-bottom: 80px; 
+    margin-top: 10px; 
+  }
+
+  .developers-grid {
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 0 20px; 
+  }
+
+  .developer {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    max-width: 350px; 
+    margin: 0 auto; 
+    padding: 15px; 
+    box-sizing: border-box; 
+  }
+
+  .developer img {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center; 
+    margin-left: 0; 
+    margin-top: 10px; 
+  }
+
+  .social-links li {
+    margin: 0 10px; 
+  }
+
+  .social-links a img {
+    width: 40px; 
+    height: 40px; 
+    transition: transform 0.3s ease;
+  }
+}
+
 
 /* CONTATO */
 .contato-container {
   display: flex;
-  justify-content: space-between; /* Mantém a imagem à esquerda e o formulário à direita */
+  justify-content: space-around; 
   align-items: center;
-  padding: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  
 }
 
 .contato-imagem {
-  order: 1; /* Garante que a imagem esteja à esquerda */
+  order: 1; 
 }
 
 .contato-imagem img {
-  width: 550px; /* Aumenta o tamanho da imagem do urso */
+  width: 550px; 
 }
 
 .contato-formulario {
-  order: 2; /* Garante que o formulário esteja à direita */
+  order: 2; 
   max-width: 400px;
-
+margin-left: -150px;
   padding: 30px;
   border-radius: 15px;
 }
@@ -419,67 +686,127 @@ nav ul li a:hover {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 50px; /* Bordas arredondadas */
+  border-radius: 50px;
   border: 2px solid #CCC;
   font-size: 18px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  outline: none; /* Remove o contorno padrão */
-  transition: box-shadow 0.3s ease-in-out; /* Efeito de foco suave */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  outline: none; 
+  transition: box-shadow 0.3s ease-in-out; 
+  font-family: 'Poppins', sans-serif; 
 }
 
 .contato-formulario form input:focus,
 .contato-formulario form textarea:focus {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte no foco */
-}
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); }
 
 .contato-formulario form textarea {
   height: 150px;
-  border-radius: 30px; /* Ajuste no arredondamento da área de texto */
+  border-radius: 30px; 
+  font-family: 'Poppins', sans-serif; 
 }
 
+.contato-formulario form textarea::placeholder {
+  font-family: 'Poppins', sans-serif; 
+  
+}
 .contato-formulario form button {
   width: 100%;
   padding: 15px;
   background-color: #F7AAB7;
   color: white;
   border: none;
-  border-radius: 50px; /* Bordas arredondadas no botão */
+  border-radius: 50px; 
   font-size: 18px;
-  font-weight: bold; /* Texto em negrito */
+  font-weight: bold; 
   cursor: pointer;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra no botão */
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efeito de hover */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
 }
 
 .contato-formulario form button:hover {
-  background-color: #f58a9c; /* Cor de fundo mais escura no hover */
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+  background-color: #f58a9c; 
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); 
 }
 
-/* Título "Contato" */
 #contato h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #FBAF44;
+  font-size: 2.5rem;
+  color: #f39c12;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(243, 156, 18, 0.5);
   text-align: center;
 }
 
-/* Footer */
+@media (max-width: 768px) {
+  .contato-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px; 
+    box-sizing: border-box; 
+  }
+  
+  .contato-imagem {
+    display: none; 
+  }
+
+  #contato h2 {
+    font-size: 2rem; 
+    margin-bottom: 10px; 
+    text-align: center; 
+  }
+
+  .contato-formulario {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 20px; 
+    margin: 0 auto; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box; 
+  }
+
+  .contato-formulario form input,
+  .contato-formulario form textarea {
+    font-size: 16px; 
+    width: 100%; 
+    padding: 12px; 
+    box-sizing: border-box; 
+    margin-bottom: 15px; 
+  }
+
+  .contato-formulario form button {
+    font-size: 16px; 
+    padding: 12px; 
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* FOOTER */
+
+section, div, footer {
+  margin: 0;
+  padding: 0;
+}
+
 footer {
-  background-color: #FDEBCF;
+  background-color: #fae1a3;
   padding: 20px;
   position: relative;
 }
 
 .footer-container {
+  width: 100%;
+  margin: 0; 
+  padding: 0; 
   display: flex;
-  justify-content: space-between; /* Garante que o conteúdo fique distribuído */
-  align-items: flex-start; /* Alinha o conteúdo principal à esquerda */
+  flex-wrap: wrap; 
 }
 
 .footer-contato {
-  flex-grow: 1; /* Faz com que a seção de contato ocupe o máximo de espaço à esquerda */
+  flex-grow: 1; 
 }
 
 .footer-contato p {
@@ -487,16 +814,16 @@ footer {
   display: flex;
   align-items: center;
   font-size: 16px;
-  font-weight: bold; /* Negrito */
+  font-weight: bold; 
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
 .footer-contato img {
-  width: 50px; /* Ajuste o valor conforme necessário */
-  height: auto; /* Mantém a proporção da imagem */
-  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+  width: 50px; 
+  height: auto; 
+  margin-right: 8px; 
 }
 
 
@@ -506,18 +833,52 @@ footer img {
   margin: 5px 0;
 }
 
-/* Copyright no canto inferior direito */
 .footer-copyright {
   position: absolute;
   right: 20px;
   bottom: 20px;
   font-size: 16px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 
 }
 
+@media (max-width: 768px) {
+  footer {
+    padding: 10px 0; 
+    text-align: center; 
+  }
 
+  .footer-container {
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    margin: 0; 
+  }
+
+  .footer-contato {
+    margin-bottom: 10px; 
+    text-align: center; 
+    width: 100%; 
+  }
+
+  .footer-contato p {
+    justify-content: center; 
+    margin: 0; 
+  }
+
+  .footer-contato img {
+    margin: 0 auto; 
+    display: block; 
+  }
+
+  .footer-copyright {
+    position: static; 
+    margin-top: 10px; 
+    text-align: center; 
+    width: 100%; 
+  }
+}
 
 /* BOTAO DE VOLTAR AO TOPO */
 #back-to-top {
